@@ -28,6 +28,7 @@ namespace Demo.Filters
                 {
                     if (System.Web.HttpContext.Current.Cache[cacheToken] == null)
                     {
+                        //TimeSpan.FromSeconds(1)-最后一次访问所插入对象时与该对象到期时之间的时间间隔。即是说：1s后才能再次post提交。
                         System.Web.HttpContext.Current.Cache.Insert(cacheToken, cacheToken, null, DateTime.MaxValue, TimeSpan.FromSeconds(1));
                         //ok
                         log.Info("提交成功");
